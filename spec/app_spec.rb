@@ -14,7 +14,9 @@ describe "app" do
   describe 'routing' do
     describe '/message' do
       it 'returns 200' do
-        allow(MyBot).to receive(:new_message)
+        a_bot = double(:bot, new_message: nil)
+        allow(MyBot).to receive(:new).
+           and_return(a_bot)
 
         post '/message', {}.to_json
 
@@ -22,7 +24,10 @@ describe "app" do
       end
 
       it 'calls the bot' do
-        expect(MyBot).to receive(:new_message)
+        a_bot = double(:bot, new_message: nil)
+        allow(MyBot).to receive(:new).
+           and_return(a_bot)
+        expect(a_bot).to receive(:new_message)
 
         post '/message', {}.to_json
       end

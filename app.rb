@@ -9,8 +9,16 @@ class Bot
       return ['404', {'Content-Type' => 'text/html'}, ['Not Found']]
     end
 
-    MyBot.new_message(JSON.parse(req.body.read))
+    dialogues = [
+      { id: '/start', text: 'Bienvenido! tengo una pregunta para ti, como te llevas con tu pareja?',
+        options: [ 'Bien', 'Mal']},
+      { id: 'Bien', text: 'Hablemos entonces de previsiones legales matrimoniales'},
+      { id: 'Mal', text:  'Entiendo, has pensado en una separacion o en divorciarte' }
+    ]
 
-    ['200', {'Content-Type' => 'text/html'}, ['A barebones rack app.']]
+    bot = MyBot.new(dialogues)
+    bot.new_message(JSON.parse(req.body.read))
+
+    ['200', {'Content-Type' => 'text/html'}, ['']]
   end
 end
