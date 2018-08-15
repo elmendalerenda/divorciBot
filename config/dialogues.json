@@ -1,0 +1,15 @@
+[
+  {
+    "id": "/start",
+    "text": "Bienvenido! tengo una pregunta para ti, como te llevas con tu pareja?",
+    "options": [ "Bien", "Mal" ]
+  },
+  {
+    "id": "Bien",
+    "text": "Hablemos entonces de previsiones legales matrimoniales"
+  },
+  {
+    "id": "Mal",
+    "text": "Entiendo, has pensado en una separacion o en divorciarte"
+  }
+]

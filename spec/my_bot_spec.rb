@@ -7,8 +7,8 @@ describe MyBot do
     MyBot.token = "_token_"
 
     dialogues = [
-      { id: '/start',
-        text: "Hello, World"
+      { 'id' => '/start',
+        'text' => "Hello, World"
       }
     ]
 
@@ -33,11 +33,11 @@ describe MyBot do
     MyBot.token = "_token_"
 
     dialogues = [
-      { id: 1 ,
-        text: "text of section 1" ,
+      { 'id' => 1 ,
+        'text' => "text of section 1" ,
       },
-      { id: 'go to section 2',
-        text: "text of section 2" ,
+      { 'id' => 'go to section 2',
+        'text' => "text of section 2" ,
       }
     ]
 
@@ -62,9 +62,9 @@ describe MyBot do
     MyBot.token = "_token_"
 
     dialogues = [
-      { id: '/start' ,
-        text: "text of section 1" ,
-        options: [
+      { 'id' => '/start' ,
+        'text' => "text of section 1" ,
+        'options' => [
           'go to section 2',
           'go to section 3',
         ]
