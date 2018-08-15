@@ -12,8 +12,6 @@ class MyBot
     chat_id = params["message"]["chat"]["id"]
     received_message = params["message"]["text"]
 
-    conn = Faraday.new(:url => 'https://api.telegram.org/')
-
     dialogue = @dialogue.find {|e| e["id"] == received_message}
     message = dialogue["text"]
     body = {
@@ -24,6 +22,18 @@ class MyBot
     else
       body[:reply_markup] = { keyboard: [dialogue["options"]]}.to_json
     end
-    conn.post("/bot#{MyBot.token}/sendMessage", body)
+
+    send_message(body)
+  end
+
+  private
+
+  def send_message(body)
+    if MyBot.token.nil?
+      p "Intercepted message with payload: #{body}"
+    else
+      conn = Faraday.new(:url => 'https://api.telegram.org/')
+      conn.post("/bot#{MyBot.token}/sendMessage", body)
+    end
   end
 end
