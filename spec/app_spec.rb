@@ -8,7 +8,7 @@ describe "app" do
 
   module DivorciBotApp
     class << self
-      def the_bot
+      def dialogues
       end
     end
   end
@@ -22,7 +22,7 @@ describe "app" do
     describe '/message' do
       it 'returns 200' do
         a_bot = double(:bot, new_message: nil)
-        allow(DivorciBotApp).to receive(:the_bot).
+        allow(MyBot).to receive(:new).
           and_return(a_bot)
 
         post '/message', {}.to_json
@@ -32,7 +32,7 @@ describe "app" do
 
       it 'calls the bot' do
         a_bot = double(:bot, new_message: nil)
-        allow(DivorciBotApp).to receive(:the_bot).
+        allow(MyBot).to receive(:new).
           and_return(a_bot)
 
         expect(a_bot).to receive(:new_message)
