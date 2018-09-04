@@ -10,6 +10,8 @@ describe "app" do
     class << self
       def dialogues
       end
+      def redis
+      end
     end
   end
 

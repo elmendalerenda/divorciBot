@@ -4,5 +4,9 @@ module DivorciBotApp
       file = File.read('./config/dialogues.json')
       JSON.parse(file)
     end
+
+    def redis
+      @redis ||= Redis.new(url: ENV['REDIS_URL'])
+    end
   end
 end

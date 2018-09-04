@@ -1,19 +1,29 @@
 require 'faraday'
+require 'redis'
 
 class MyBot
   def self.token=(string); @token=string end
   def self.token; @token end
 
-  def initialize(dialogues)
+  def initialize(dialogues, redis)
     @dialogue = dialogues
+    @redis = redis
   end
 
   def new_message(params)
     chat_id = params["message"]["chat"]["id"]
     received_message = params["message"]["text"]
 
+    last_id = @redis.hget(chat_id, 'last_dialogue')
+    last_dialogue = @dialogue.find {|e| e["id"] == last_id}
+
+    if(!last_dialogue.nil? && !last_dialogue["override-message"].nil?)
+      received_message = last_dialogue["override-message"]
+    end
+
     dialogue = @dialogue.find {|e| e["id"] == received_message}
     message = dialogue["text"]
+    @redis.hset(chat_id, "last_dialogue", dialogue["id"])
     body = {
       chat_id: chat_id,
       text: message}

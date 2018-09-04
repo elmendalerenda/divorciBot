@@ -1,15 +1,25 @@
 [
   {
     "id": "/start",
-    "text": "Bienvenido! tengo una pregunta para ti, como te llevas con tu pareja?",
-    "options": [ "Bien", "Mal" ]
+    "text": "hola, en qué puedo ayudarte?",
+    "override-message": "Consejitos1"
   },
   {
-    "id": "Bien",
-    "text": "Hablemos entonces de previsiones legales matrimoniales"
+    "id": "Consejitos1",
+    "text": "entiendo,antes de seguir adelante, me permites darte un par de datos que son importantes?",
+    "override-message": "Consejitos2"
   },
   {
-    "id": "Mal",
-    "text": "Entiendo, has pensado en una separacion o en divorciarte"
+    "id": "Consejitos2",
+    "text": "1. Para poder divorciarte tienen que haber transcurrido al menos 3 meses desde que te casaste. La única excepción a este requisito es que puedas acreditar la existencia de un riesgo para tu vida, integridad física, la libertad, la integridad moral, libertad o indemnidad sexual o de la de tus hijos. Si te encuentras en este caso acude a la policía o al juzgado para que te ayuden.2. Para conseguir el divorcio necesariamente tendrás que ir al juzgado, habrá un juicio y finalmente el juez os concederá el divorcio si todo está correcto.quieres que te siga informando sobre lo que tienes que hacer para poder divorciarte?",
+    "options": [ "Si", "No" ]
+  },
+  {
+    "id": "No",
+    "text": "perfecto, espero haberte sido de ayuda"
+  },
+  {
+    "id": "Si",
+    "text": "perfecto, allá vamos"
   }
 ]
