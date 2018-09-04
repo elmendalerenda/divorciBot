@@ -1,6 +1,21 @@
 require 'faraday'
 require 'redis'
 
+class Context
+  def initialize(redis, id)
+    @redis = redis
+    @id = id
+  end
+
+  def save(key, value)
+    @redis.hset(@id, key, value)
+  end
+
+  def get(key)
+    @redis.hget(@id, key)
+  end
+end
+
 class MyBot
   def self.token=(string); @token=string end
   def self.token; @token end
@@ -12,9 +27,10 @@ class MyBot
 
   def new_message(params)
     chat_id = params["message"]["chat"]["id"]
+    context = Context.new(@redis, chat_id)
     received_message = params["message"]["text"]
 
-    last_id = @redis.hget(chat_id, 'last_dialogue')
+    last_id = context.get(:last_dialogue)
     last_dialogue = @dialogue.find {|e| e["id"] == last_id}
 
     if(!last_dialogue.nil? && !last_dialogue["override-message"].nil?)
@@ -23,7 +39,7 @@ class MyBot
 
     dialogue = @dialogue.find {|e| e["id"] == received_message}
     message = dialogue["text"]
-    @redis.hset(chat_id, "last_dialogue", dialogue["id"])
+    context.save(:last_dialogue, dialogue["id"])
     body = {
       chat_id: chat_id,
       text: message}
