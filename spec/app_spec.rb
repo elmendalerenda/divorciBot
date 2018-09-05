@@ -1,7 +1,6 @@
 require 'spec_helper'
 require 'rack/test'
 require_relative '../app.rb'
-require_relative '../lib/my_bot.rb'
 
 describe "app" do
   include Rack::Test::Methods

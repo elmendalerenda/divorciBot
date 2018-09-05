@@ -1,7 +1,6 @@
 require 'spec_helper'
 require 'webmock/rspec'
 require 'mock_redis'
-require_relative '../lib/my_bot'
 
 describe MyBot do
 

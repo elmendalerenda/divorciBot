@@ -1,6 +1,6 @@
 require 'rack'
 require 'json'
-require_relative 'lib/my_bot'
+require 'my_bot'
 
 class Bot
   def call(env)
