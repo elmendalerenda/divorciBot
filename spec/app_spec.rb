@@ -19,6 +19,8 @@ describe "app" do
     builder.run Bot.new
   end
 
+  let(:valid_payload) { {message: {chat: { id: "123"} } }.to_json }
+
   describe 'routing' do
     describe '/message' do
       it 'returns 200' do
@@ -26,7 +28,7 @@ describe "app" do
         allow(MyBot).to receive(:new).
           and_return(a_bot)
 
-        post '/message', {}.to_json
+        post '/message', valid_payload
 
         expect(last_response).to be_ok
       end
@@ -38,7 +40,7 @@ describe "app" do
 
         expect(a_bot).to receive(:new_message)
 
-        post '/message', {}.to_json
+        post '/message', valid_payload
       end
     end
 

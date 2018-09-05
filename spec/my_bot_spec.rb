@@ -2,9 +2,13 @@ require 'spec_helper'
 require 'webmock/rspec'
 require 'mock_redis'
 
+require 'my_bot'
+require 'context'
+
 describe MyBot do
 
-  let(:mock_redis) { MockRedis.new }
+  let(:chat_id) { "123" }
+  let(:mock_context) { Context.new(chat_id, MockRedis.new) }
 
   it 'says hi' do
     MyBot.token = "_token_"
@@ -17,16 +21,16 @@ describe MyBot do
 
     message = {
       "message" =>
-        { "chat" => { "id" => 123 },
+        { "chat" => { "id" => chat_id },
           "text" => "/start"
         }
     }
 
 		stub = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-			with( body: {"chat_id"=>"123", "text"=>"Hello, World", "reply_markup"=>"{\"remove_keyboard\":true}"}).
+			with( body: {"chat_id"=> chat_id, "text"=>"Hello, World", "reply_markup"=>"{\"remove_keyboard\":true}"}).
 			to_return(status: 200, body: "")
 
-    bot = MyBot.new(dialogues, mock_redis)
+    bot = MyBot.new(dialogues, mock_context)
 		bot.new_message(message)
 
     expect(stub).to have_been_requested
@@ -46,16 +50,16 @@ describe MyBot do
 
     message = {
       "message" =>
-        { "chat" => { "id" => 123 },
+        { "chat" => { "id" => chat_id },
           "text" => "go to section 2"
         }
     }
 
     stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-         with( body: {"chat_id"=>"123", "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
+         with( body: {"chat_id"=>chat_id, "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
 			to_return(status: 200, body: "")
 
-    bot = MyBot.new(dialogues, mock_redis)
+    bot = MyBot.new(dialogues, mock_context)
 		bot.new_message(message)
 
     expect(stub).to have_been_requested
@@ -64,7 +68,7 @@ describe MyBot do
   it 'ignores a message and continues the dialogue' do
     MyBot.token = "_token_"
 
-    mock_redis.hset('123', 'last_dialogue', '1')
+    mock_context.save(:last_dialogue, '1')
 
     dialogues = [
       { 'id' => '1' ,
@@ -78,16 +82,16 @@ describe MyBot do
 
     message = {
       "message" =>
-        { "chat" => { "id" => 123 },
+        { "chat" => { "id" => chat_id },
           "text" => "ignore me"
         }
     }
 
     stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-         with( body: {"chat_id"=>"123", "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
+         with( body: {"chat_id"=>chat_id, "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
 			to_return(status: 200, body: "")
 
-    bot = MyBot.new(dialogues, mock_redis)
+    bot = MyBot.new(dialogues, mock_context)
 		bot.new_message(message)
 
     expect(stub).to have_been_requested
@@ -108,17 +112,17 @@ describe MyBot do
 
     message = {
       "message" =>
-        { "chat" => { "id" => 123 },
+        { "chat" => { "id" => chat_id },
           "text" => "/start"
         }
     }
 
     stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-         with( body: {"chat_id"=>"123", "text"=>"text of section 1",
+         with( body: {"chat_id"=>chat_id, "text"=>"text of section 1",
                       "reply_markup"=>"{\"keyboard\":[[\"go to section 2\",\"go to section 3\"]]}"}).
 			to_return(status: 200, body: "")
 
-    bot = MyBot.new(dialogues, mock_redis)
+    bot = MyBot.new(dialogues, mock_context)
 		bot.new_message(message)
 
     expect(stub).to have_been_requested

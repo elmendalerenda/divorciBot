@@ -1,7 +1,7 @@
 require 'redis'
 
 class Context
-  def initialize(redis, id)
+  def initialize(id, redis)
     @redis = redis
     @id = id
   end
