@@ -9,9 +9,8 @@ class MyBot
     @context = context
   end
 
-  def new_message(params)
-    chat_id = params["message"]["chat"]["id"]
-    received_message = params["message"]["text"]
+  def new_message(incoming_message)
+    received_message = incoming_message.text
 
     last_id = @context.get(:last_dialogue)
     last_dialogue = @dialogue.find {|e| e["id"] == last_id}
@@ -25,7 +24,7 @@ class MyBot
       message = dialogue["text"]
       @context.save(:last_dialogue, dialogue["id"])
       body = {
-        chat_id: chat_id,
+        chat_id: incoming_message.chat_id,
         text: message}
       if dialogue["options"].nil?
         body[:reply_markup] = {remove_keyboard: true}.to_json

@@ -16,7 +16,7 @@ describe "app" do
 
   def app
     builder = Rack::Builder.new
-    builder.run Bot.new
+    builder.run BotWebhookController.new
   end
 
   let(:valid_payload) { {message: {chat: { id: "123"} } }.to_json }

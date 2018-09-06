@@ -4,11 +4,23 @@ require 'mock_redis'
 
 require 'my_bot'
 require 'context'
+require 'incoming_message'
 
 describe MyBot do
 
   let(:chat_id) { "123" }
   let(:mock_context) { Context.new(chat_id, MockRedis.new) }
+
+  def compose_payload_with_text(text)
+    IncomingMessage.new(
+      {
+        "message" =>
+        { "chat" => { "id" => chat_id },
+          "text" => text
+        }
+      }
+    )
+  end
 
   it 'says hi' do
     MyBot.token = "_token_"
@@ -16,25 +28,20 @@ describe MyBot do
     dialogues = [
       { 'id' => '/start',
         'text' => "Hello, World"
-      }
+    }
     ]
 
-    message = {
-      "message" =>
-        { "chat" => { "id" => chat_id },
-          "text" => "/start"
-        }
-    }
+    update = compose_payload_with_text("/start")
 
-		stub = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-			with( body: {"chat_id"=> chat_id, "text"=>"Hello, World", "reply_markup"=>"{\"remove_keyboard\":true}"}).
-			to_return(status: 200, body: "")
+    stub = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
+      with( body: {"chat_id"=> chat_id, "text"=>"Hello, World", "reply_markup"=>"{\"remove_keyboard\":true}"}).
+      to_return(status: 200, body: "")
 
     bot = MyBot.new(dialogues, mock_context)
-		bot.new_message(message)
+    bot.new_message(update)
 
     expect(stub).to have_been_requested
-	end
+  end
 
   it 'jumps from one dialogue to another' do
     MyBot.token = "_token_"
@@ -42,25 +49,20 @@ describe MyBot do
     dialogues = [
       { 'id' => 1 ,
         'text' => "text of section 1" ,
-      },
-      { 'id' => 'go to section 2',
-        'text' => "text of section 2" ,
-      }
+    },
+    { 'id' => 'go to section 2',
+      'text' => "text of section 2" ,
+    }
     ]
 
-    message = {
-      "message" =>
-        { "chat" => { "id" => chat_id },
-          "text" => "go to section 2"
-        }
-    }
+    update = compose_payload_with_text("go to section 2")
 
     stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-         with( body: {"chat_id"=>chat_id, "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
-			to_return(status: 200, body: "")
+      with( body: {"chat_id"=>chat_id, "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
+      to_return(status: 200, body: "")
 
     bot = MyBot.new(dialogues, mock_context)
-		bot.new_message(message)
+    bot.new_message(update)
 
     expect(stub).to have_been_requested
   end
@@ -74,25 +76,20 @@ describe MyBot do
       { 'id' => '1' ,
         'text' => 'text of section 1' ,
         'override-message' => 'go to section 2'
-      },
-      { 'id' => 'go to section 2',
-        'text' => 'text of section 2' ,
-      }
+    },
+    { 'id' => 'go to section 2',
+      'text' => 'text of section 2' ,
+    }
     ]
 
-    message = {
-      "message" =>
-        { "chat" => { "id" => chat_id },
-          "text" => "ignore me"
-        }
-    }
+    update = compose_payload_with_text("ignore me")
 
     stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-         with( body: {"chat_id"=>chat_id, "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
-			to_return(status: 200, body: "")
+      with( body: {"chat_id"=>chat_id, "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
+      to_return(status: 200, body: "")
 
     bot = MyBot.new(dialogues, mock_context)
-		bot.new_message(message)
+    bot.new_message(update)
 
     expect(stub).to have_been_requested
   end
@@ -107,23 +104,18 @@ describe MyBot do
           'go to section 2',
           'go to section 3',
         ]
-      }
+    }
     ]
 
-    message = {
-      "message" =>
-        { "chat" => { "id" => chat_id },
-          "text" => "/start"
-        }
-    }
+    update = compose_payload_with_text("/start")
 
     stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-         with( body: {"chat_id"=>chat_id, "text"=>"text of section 1",
-                      "reply_markup"=>"{\"keyboard\":[[\"go to section 2\",\"go to section 3\"]]}"}).
-			to_return(status: 200, body: "")
+      with( body: {"chat_id"=>chat_id, "text"=>"text of section 1",
+                   "reply_markup"=>"{\"keyboard\":[[\"go to section 2\",\"go to section 3\"]]}"}).
+    to_return(status: 200, body: "")
 
     bot = MyBot.new(dialogues, mock_context)
-		bot.new_message(message)
+    bot.new_message(update)
 
     expect(stub).to have_been_requested
   end
