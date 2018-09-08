@@ -11,23 +11,6 @@ describe MyBot do
   let(:chat_id) { "123" }
   let(:mock_context) { Context.new(chat_id, MockRedis.new) }
 
-  def compose_payload_with_text(text)
-    IncomingMessage.new(
-      {
-        "message" =>
-        { "chat" => { "id" => chat_id },
-          "text" => text
-        }
-      }
-    )
-  end
-
-  def stub_basic_telegram_request(text)
-    stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-      with( body: {"chat_id"=> chat_id, "text" => text, "reply_markup"=>"{\"remove_keyboard\":true}"}).
-      to_return(status: 200, body: "")
-  end
-
   it 'says hi' do
     MyBot.token = "_token_"
 
@@ -48,14 +31,10 @@ describe MyBot do
     MyBot.token = "_token_"
 
     dialogues = [
-      { 'id' => '/start',
-        'text' => "Hello, World"
-      },
       { 'id' => 'Default',
         'text' => "I do not understand",
         'default' => 'true'
-      },
-
+      }
     ]
     bot = MyBot.new(dialogues, mock_context)
     expected_request = stub_basic_telegram_request("I do not understand")
@@ -63,6 +42,24 @@ describe MyBot do
     bot.new_message(compose_payload_with_text("random stuff"))
 
     expect(expected_request).to have_been_requested
+  end
+
+  it 'splits a text into different messages' do
+    MyBot.token = '_token_'
+
+    dialogues = [
+      { 'id' => 'split',
+        'text' => ['first message', 'second message']
+      }
+    ]
+    bot = MyBot.new(dialogues, mock_context)
+    expected_request = stub_basic_telegram_request('first message')
+    second_expected_request = stub_basic_telegram_request('second message')
+
+    bot.new_message(compose_payload_with_text('split'))
+
+    expect(expected_request).to have_been_requested
+    expect(second_expected_request).to have_been_requested
   end
 
   it 'jumps from one dialogue to another' do
@@ -93,10 +90,10 @@ describe MyBot do
       { 'id' => '1' ,
         'text' => 'text of section 1' ,
         'override_message' => 'go to section 2'
-    },
-    { 'id' => 'go to section 2',
-      'text' => 'text of section 2' ,
-    }
+      },
+      { 'id' => 'go to section 2',
+        'text' => 'text of section 2' ,
+      }
     ]
     bot = MyBot.new(dialogues, mock_context)
     expected_request = stub_basic_telegram_request("text of section 2")
@@ -128,5 +125,22 @@ describe MyBot do
     bot.new_message(compose_payload_with_text("/start"))
 
     expect(expected_request).to have_been_requested
+  end
+
+  def compose_payload_with_text(text)
+    IncomingMessage.new(
+      {
+        "message" =>
+        { "chat" => { "id" => chat_id },
+          "text" => text
+        }
+      }
+    )
+  end
+
+  def stub_basic_telegram_request(text)
+    stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
+      with( body: {"chat_id"=> chat_id, "text" => text, "reply_markup"=>"{\"remove_keyboard\":true}"}).
+      to_return(status: 200, body: "")
   end
 end

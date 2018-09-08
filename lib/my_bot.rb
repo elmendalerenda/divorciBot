@@ -38,20 +38,24 @@ class MyBot
   end
 
   def send_message(dialogue, chat_id)
-    body = {
-      chat_id: chat_id,
-      text: dialogue.text}
-    if dialogue.options.nil?
-      body[:reply_markup] = {remove_keyboard: true}.to_json
-    else
-      body[:reply_markup] = { keyboard: [dialogue.options]}.to_json
-    end
+    messages = dialogue.text.is_a?(String) ? [dialogue.text] : dialogue.text
 
-    if MyBot.token.nil?
-      p "Intercepted message with payload: #{body}"
-    else
-      conn = Faraday.new(:url => 'https://api.telegram.org/')
-      conn.post("/bot#{MyBot.token}/sendMessage", body)
+    messages.each do |text|
+      body = {
+        chat_id: chat_id,
+        text: text}
+      if dialogue.options.nil?
+        body[:reply_markup] = {remove_keyboard: true}.to_json
+      else
+        body[:reply_markup] = { keyboard: [dialogue.options]}.to_json
+      end
+
+      if MyBot.token.nil?
+        p "Intercepted message with payload: #{body}"
+      else
+        conn = Faraday.new(:url => 'https://api.telegram.org/')
+        conn.post("/bot#{MyBot.token}/sendMessage", body)
+      end
     end
   end
 end

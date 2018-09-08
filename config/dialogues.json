@@ -11,7 +11,7 @@
   },
   {
     "id": "Consejitos2",
-    "text": "1. Para poder divorciarte tienen que haber transcurrido al menos 3 meses desde que te casaste. La única excepción a este requisito es que puedas acreditar la existencia de un riesgo para tu vida, integridad física, la libertad, la integridad moral, libertad o indemnidad sexual o de la de tus hijos. Si te encuentras en este caso acude a la policía o al juzgado para que te ayuden.2. Para conseguir el divorcio necesariamente tendrás que ir al juzgado, habrá un juicio y finalmente el juez os concederá el divorcio si todo está correcto.quieres que te siga informando sobre lo que tienes que hacer para poder divorciarte?",
+    "text": ["1. Para poder divorciarte tienen que haber transcurrido al menos 3 meses desde que te casaste. La única excepción a este requisito es que puedas acreditar la existencia de un riesgo para tu vida, integridad física, la libertad, la integridad moral, libertad o indemnidad sexual o de la de tus hijos. Si te encuentras en este caso acude a la policía o al juzgado para que te ayuden.", "2. Para conseguir el divorcio necesariamente tendrás que ir al juzgado, habrá un juicio y finalmente el juez os concederá el divorcio si todo está correcto.", "quieres que te siga informando sobre lo que tienes que hacer para poder divorciarte?"],
     "options": [ "Si", "No" ]
   },
   {
