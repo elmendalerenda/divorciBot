@@ -20,7 +20,30 @@
   },
   {
     "id": "Si",
-    "text": "perfecto, allá vamos"
+    "text": "has tomado tu solo/sola la decisión de divorciarte o es algo que habeis decidido de mutuo acuerdo?",
+    "options": [ "Yo solo", "Entre los 2"]
+  },
+  {
+    "id": "Yo solo",
+    "text": "existe una relación cordial con tu cónyuge?. Si os llevais de manera coordial os recomiendo que tramiteis el divorcio de mutuo acuerdo, es más sencillo, más rápido, más económico y  podéis tener el mismo abogado.",
+    "options": ["Me llevo bien con mi pareja", "Nos odiamos"]
+  },
+  {
+    "id": "Me llevo bien con mi pareja",
+    "text": "El procedimiento en este caso es más sencillo y podeis conseguir el divorcio contratando el mismo abogado para ambos. Te puedo contar sobre los papeles necesarios y sobre el procedimiento",
+    "options": ["Hablame sobre el papeleo", "Cual es el procedimiento"]
+  },
+  {
+    "id": "Entre los 2",
+    "text": "El procedimiento en este caso es más sencillo y podeis conseguir el divorcio contratando el mismo abogado para ambos. Te puedo contar sobre los papeles necesarios y sobre el procedimiento",
+    "options": ["Hablame sobre el papeleo", "Cual es el procedimiento"]
+  },
+  { "id":"Hablame sobre el papeleo",
+    "text": "Para que vuestro o tu abogado pueda presentar la de divorcio tendrás que darle los siguientes papeles: \n1. La certificación de la inscripción del matrimonio (puedes conseguirla en el Registro Civil).\n2. La inscripción de nacimiento de los hijos en el Registro Civil.\n3. La propuesta de convenio regulador.\n4. Cualquier otro documento que te permita justificar aquello que quieras pedir.\n5. Proposición de prueba para acreditar aquellos hechos relevantes que no tengan constancia documental.",
+    "options": ["Cual es el procedimiento"]
+  },
+  { "id": "Cual es el procedimiento",
+    "text": "Una vez presentada y admitida la solicitud de divorcio el Letrado de la Administración de justicia os citará para que os ratifiqueis en vuestra decisión. Ireis por separado.\nUna vez ratificada por ambos la solicitud de divorcio, si la documentación presentada fuera insuficiente, el Juez o el Letrado de la Administración de Justicia os concederá un plazo de 10 días para completarla.\nSi teneis hijos menores o incapacitados el tribunal recabará informe del Ministerio Fiscal sobre los extremos del convenio que les afecten.\nEl tribunal dictará sentencia que puede ser alguna de estas:\nConceder el divorcio y aprobar el convenio regulador.\nConceder el divorcio y no aprobar el convenio regulador, en todos o algunos de sus extremos: En este caso el juez os dará un plazo para presentar otro convenio cambiando aquello que no ha aprobado.\nNo conceder el divorcio: La sentencia se puede recurrir en apelación."
   },
   {
     "id": "Default",
