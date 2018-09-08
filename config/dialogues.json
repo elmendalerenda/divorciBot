@@ -2,12 +2,12 @@
   {
     "id": "/start",
     "text": "hola, en qué puedo ayudarte?",
-    "override-message": "Consejitos1"
+    "override_message": "Consejitos1"
   },
   {
     "id": "Consejitos1",
     "text": "entiendo,antes de seguir adelante, me permites darte un par de datos que son importantes?",
-    "override-message": "Consejitos2"
+    "override_message": "Consejitos2"
   },
   {
     "id": "Consejitos2",
@@ -21,5 +21,10 @@
   {
     "id": "Si",
     "text": "perfecto, allá vamos"
+  },
+  {
+    "id": "Default",
+    "text": "No entiendo. Para empezar una conversación, escribe '/start'",
+    "default": "true"
   }
 ]

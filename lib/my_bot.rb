@@ -1,4 +1,5 @@
 require 'faraday'
+require 'ostruct'
 
 class MyBot
   def self.token=(string); @token=string end
@@ -13,32 +14,39 @@ class MyBot
     received_message = incoming_message.text
 
     last_id = @context.get(:last_dialogue)
-    last_dialogue = @dialogue.find {|e| e["id"] == last_id}
+    last_dialogue = find_by_id(last_id)
 
-    if(!last_dialogue.nil? && !last_dialogue["override-message"].nil?)
-      received_message = last_dialogue["override-message"]
+    if(!last_dialogue.override_message.nil?)
+      received_message = last_dialogue.override_message
     end
 
-    dialogue = @dialogue.find {|e| e["id"] == received_message}
-    unless (dialogue.nil?)
-      message = dialogue["text"]
-      @context.save(:last_dialogue, dialogue["id"])
-      body = {
-        chat_id: incoming_message.chat_id,
-        text: message}
-      if dialogue["options"].nil?
-        body[:reply_markup] = {remove_keyboard: true}.to_json
-      else
-        body[:reply_markup] = { keyboard: [dialogue["options"]]}.to_json
-      end
+    dialogue = find_by_id(received_message)
 
-      send_message(body)
-    end
+    @context.save(:last_dialogue, dialogue.id)
+    send_message(dialogue, incoming_message.chat_id)
   end
 
   private
 
-  def send_message(body)
+  def find_by_id(criteria)
+    found = @dialogue.find {|e| e["id"] == criteria}
+    if(found.nil?)
+      found = @dialogue.find {|e| e["default"] == "true"}
+    end
+
+    OpenStruct.new(found)
+  end
+
+  def send_message(dialogue, chat_id)
+    body = {
+      chat_id: chat_id,
+      text: dialogue.text}
+    if dialogue.options.nil?
+      body[:reply_markup] = {remove_keyboard: true}.to_json
+    else
+      body[:reply_markup] = { keyboard: [dialogue.options]}.to_json
+    end
+
     if MyBot.token.nil?
       p "Intercepted message with payload: #{body}"
     else

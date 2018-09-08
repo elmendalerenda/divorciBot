@@ -43,6 +43,32 @@ describe MyBot do
     expect(stub).to have_been_requested
   end
 
+  it 'answers with a default option' do
+    MyBot.token = "_token_"
+
+    dialogues = [
+      { 'id' => '/start',
+        'text' => "Hello, World"
+      },
+      { 'id' => 'Default',
+        'text' => "I do not understand",
+        'default' => 'true'
+      },
+
+    ]
+
+    update = compose_payload_with_text("random stuff")
+
+    stub = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
+      with( body: {"chat_id"=> chat_id, "text"=>"I do not understand", "reply_markup"=>"{\"remove_keyboard\":true}"}).
+      to_return(status: 200, body: "")
+
+    bot = MyBot.new(dialogues, mock_context)
+    bot.new_message(update)
+
+    expect(stub).to have_been_requested
+  end
+
   it 'jumps from one dialogue to another' do
     MyBot.token = "_token_"
 
@@ -75,7 +101,7 @@ describe MyBot do
     dialogues = [
       { 'id' => '1' ,
         'text' => 'text of section 1' ,
-        'override-message' => 'go to section 2'
+        'override_message' => 'go to section 2'
     },
     { 'id' => 'go to section 2',
       'text' => 'text of section 2' ,
