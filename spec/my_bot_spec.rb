@@ -22,25 +22,26 @@ describe MyBot do
     )
   end
 
+  def stub_basic_telegram_request(text)
+    stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
+      with( body: {"chat_id"=> chat_id, "text" => text, "reply_markup"=>"{\"remove_keyboard\":true}"}).
+      to_return(status: 200, body: "")
+  end
+
   it 'says hi' do
     MyBot.token = "_token_"
 
     dialogues = [
       { 'id' => '/start',
         'text' => "Hello, World"
-    }
+      }
     ]
-
-    update = compose_payload_with_text("/start")
-
-    stub = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-      with( body: {"chat_id"=> chat_id, "text"=>"Hello, World", "reply_markup"=>"{\"remove_keyboard\":true}"}).
-      to_return(status: 200, body: "")
-
     bot = MyBot.new(dialogues, mock_context)
-    bot.new_message(update)
+    expected_request = stub_basic_telegram_request("Hello, World")
 
-    expect(stub).to have_been_requested
+    bot.new_message(compose_payload_with_text("/start"))
+
+    expect(expected_request).to have_been_requested
   end
 
   it 'answers with a default option' do
@@ -56,17 +57,12 @@ describe MyBot do
       },
 
     ]
-
-    update = compose_payload_with_text("random stuff")
-
-    stub = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-      with( body: {"chat_id"=> chat_id, "text"=>"I do not understand", "reply_markup"=>"{\"remove_keyboard\":true}"}).
-      to_return(status: 200, body: "")
-
     bot = MyBot.new(dialogues, mock_context)
-    bot.new_message(update)
+    expected_request = stub_basic_telegram_request("I do not understand")
 
-    expect(stub).to have_been_requested
+    bot.new_message(compose_payload_with_text("random stuff"))
+
+    expect(expected_request).to have_been_requested
   end
 
   it 'jumps from one dialogue to another' do
@@ -80,17 +76,12 @@ describe MyBot do
       'text' => "text of section 2" ,
     }
     ]
-
-    update = compose_payload_with_text("go to section 2")
-
-    stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-      with( body: {"chat_id"=>chat_id, "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
-      to_return(status: 200, body: "")
-
     bot = MyBot.new(dialogues, mock_context)
-    bot.new_message(update)
+    expected_request = stub_basic_telegram_request("text of section 2")
 
-    expect(stub).to have_been_requested
+    bot.new_message(compose_payload_with_text("go to section 2"))
+
+    expect(expected_request).to have_been_requested
   end
 
   it 'ignores a message and continues the dialogue' do
@@ -107,17 +98,12 @@ describe MyBot do
       'text' => 'text of section 2' ,
     }
     ]
-
-    update = compose_payload_with_text("ignore me")
-
-    stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
-      with( body: {"chat_id"=>chat_id, "text"=>"text of section 2", "reply_markup"=>"{\"remove_keyboard\":true}"}).
-      to_return(status: 200, body: "")
-
     bot = MyBot.new(dialogues, mock_context)
-    bot.new_message(update)
+    expected_request = stub_basic_telegram_request("text of section 2")
 
-    expect(stub).to have_been_requested
+    bot.new_message(compose_payload_with_text("ignore me"))
+
+    expect(expected_request).to have_been_requested
   end
 
   it 'sends the possible options for a message' do
@@ -132,17 +118,15 @@ describe MyBot do
         ]
     }
     ]
+    bot = MyBot.new(dialogues, mock_context)
 
-    update = compose_payload_with_text("/start")
-
-    stub =	stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
+    expected_request = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
       with( body: {"chat_id"=>chat_id, "text"=>"text of section 1",
                    "reply_markup"=>"{\"keyboard\":[[\"go to section 2\",\"go to section 3\"]]}"}).
-    to_return(status: 200, body: "")
+      to_return(status: 200, body: "")
 
-    bot = MyBot.new(dialogues, mock_context)
-    bot.new_message(update)
+    bot.new_message(compose_payload_with_text("/start"))
 
-    expect(stub).to have_been_requested
+    expect(expected_request).to have_been_requested
   end
 end
