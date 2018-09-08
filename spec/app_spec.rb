@@ -25,7 +25,7 @@ describe "app" do
     describe '/message' do
       it 'returns 200' do
         a_bot = double(:bot, new_message: nil)
-        allow(MyBot).to receive(:new).
+        allow(DialogueRunner).to receive(:new).
           and_return(a_bot)
 
         post '/message', valid_payload
@@ -35,7 +35,7 @@ describe "app" do
 
       it 'calls the bot' do
         a_bot = double(:bot, new_message: nil)
-        allow(MyBot).to receive(:new).
+        allow(DialogueRunner).to receive(:new).
           and_return(a_bot)
 
         expect(a_bot).to receive(:new_message)

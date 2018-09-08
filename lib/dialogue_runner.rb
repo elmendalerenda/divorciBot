@@ -1,7 +1,7 @@
 require 'faraday'
 require 'ostruct'
 
-class MyBot
+class DialogueRunner
   def self.token=(string); @token=string end
   def self.token; @token end
 
@@ -50,11 +50,11 @@ class MyBot
         body[:reply_markup] = { keyboard: [dialogue.options]}.to_json
       end
 
-      if MyBot.token.nil?
+      if DialogueRunner.token.nil?
         p "Intercepted message with payload: #{body}"
       else
         conn = Faraday.new(:url => 'https://api.telegram.org/')
-        conn.post("/bot#{MyBot.token}/sendMessage", body)
+        conn.post("/bot#{DialogueRunner.token}/sendMessage", body)
       end
     end
   end

@@ -2,24 +2,24 @@ require 'spec_helper'
 require 'webmock/rspec'
 require 'mock_redis'
 
-require 'my_bot'
+require 'dialogue_runner'
 require 'context'
 require 'incoming_message'
 
-describe MyBot do
+describe DialogueRunner do
 
   let(:chat_id) { "123" }
   let(:mock_context) { Context.new(chat_id, MockRedis.new) }
 
   it 'says hi' do
-    MyBot.token = "_token_"
+    DialogueRunner.token = "_token_"
 
     dialogues = [
       { 'id' => '/start',
         'text' => "Hello, World"
       }
     ]
-    bot = MyBot.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context)
     expected_request = stub_basic_telegram_request("Hello, World")
 
     bot.new_message(compose_payload_with_text("/start"))
@@ -28,7 +28,7 @@ describe MyBot do
   end
 
   it 'answers with a default option' do
-    MyBot.token = "_token_"
+    DialogueRunner.token = "_token_"
 
     dialogues = [
       { 'id' => 'Default',
@@ -36,7 +36,7 @@ describe MyBot do
         'default' => 'true'
       }
     ]
-    bot = MyBot.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context)
     expected_request = stub_basic_telegram_request("I do not understand")
 
     bot.new_message(compose_payload_with_text("random stuff"))
@@ -45,14 +45,14 @@ describe MyBot do
   end
 
   it 'splits a text into different messages' do
-    MyBot.token = '_token_'
+    DialogueRunner.token = '_token_'
 
     dialogues = [
       { 'id' => 'split',
         'text' => ['first message', 'second message']
       }
     ]
-    bot = MyBot.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context)
     expected_request = stub_basic_telegram_request('first message')
     second_expected_request = stub_basic_telegram_request('second message')
 
@@ -63,7 +63,7 @@ describe MyBot do
   end
 
   it 'jumps from one dialogue to another' do
-    MyBot.token = "_token_"
+    DialogueRunner.token = "_token_"
 
     dialogues = [
       { 'id' => 1 ,
@@ -73,7 +73,7 @@ describe MyBot do
       'text' => "text of section 2" ,
     }
     ]
-    bot = MyBot.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context)
     expected_request = stub_basic_telegram_request("text of section 2")
 
     bot.new_message(compose_payload_with_text("go to section 2"))
@@ -82,7 +82,7 @@ describe MyBot do
   end
 
   it 'ignores a message and continues the dialogue' do
-    MyBot.token = "_token_"
+    DialogueRunner.token = "_token_"
 
     mock_context.save(:last_dialogue, '1')
 
@@ -95,7 +95,7 @@ describe MyBot do
         'text' => 'text of section 2' ,
       }
     ]
-    bot = MyBot.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context)
     expected_request = stub_basic_telegram_request("text of section 2")
 
     bot.new_message(compose_payload_with_text("ignore me"))
@@ -104,7 +104,7 @@ describe MyBot do
   end
 
   it 'sends the possible options for a message' do
-    MyBot.token = "_token_"
+    DialogueRunner.token = "_token_"
 
     dialogues = [
       { 'id' => '/start' ,
@@ -115,7 +115,7 @@ describe MyBot do
         ]
     }
     ]
-    bot = MyBot.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context)
 
     expected_request = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
       with( body: {"chat_id"=>chat_id, "text"=>"text of section 1",
