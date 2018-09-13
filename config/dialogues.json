@@ -6,12 +6,12 @@
   },
   {
     "id": "Consejitos1",
-    "text": "entiendo,antes de seguir adelante, me permites darte un par de datos que son importantes?",
+    "text": "Vale, ya entiendo. Antes de seguir, ¿te doy información importante sobre el tema?",
     "override_message": "Consejitos2"
   },
   {
     "id": "Consejitos2",
-    "text": ["1. Para poder divorciarte tienen que haber transcurrido al menos 3 meses desde que te casaste. La única excepción a este requisito es que puedas acreditar la existencia de un riesgo para tu vida, integridad física, la libertad, la integridad moral, libertad o indemnidad sexual o de la de tus hijos. Si te encuentras en este caso acude a la policía o al juzgado para que te ayuden.", "2. Para conseguir el divorcio necesariamente tendrás que ir al juzgado, habrá un juicio y finalmente el juez os concederá el divorcio si todo está correcto.", "quieres que te siga informando sobre lo que tienes que hacer para poder divorciarte?"],
+    "text": ["Si llevas más de tres meses casado, enhorabuena, ya puedes divorciarte. En caso de que tu vida esté en peligro, o la de tus hijos, no hace falta que esperes. Acude a la policía o al juzgado para que te ayuden.", "Si no tienes hijos, puedes divorciarte ante notario. Si tienes hijos tienes que ir al juzgado obligatoriamente, lo sentimos. Si, aunque sean mayores de edad. ", "Si aun piensas en divorciarte te puedo decir que necesitas..."],
     "options": [ "Si", "No" ]
   },
   {
@@ -47,7 +47,7 @@
   },
   {
     "id": "Default",
-    "text": "No entiendo. Para empezar una conversación, escribe '/start'",
+    "text": "¿Quieres que hablemos? Escribe '/start'",
     "default": "true"
   }
 ]
