@@ -53,7 +53,9 @@ class DialogueRunner
       if DialogueRunner.token.nil?
         p "Intercepted message with payload: #{body}"
       else
-        conn = Faraday.new(:url => 'https://api.telegram.org/')
+        conn = Faraday.new(:url => 'https://api.telegram.org/') do |faraday|
+          faraday.adapter  :em_http
+        end
         conn.post("/bot#{DialogueRunner.token}/sendMessage", body)
       end
     end

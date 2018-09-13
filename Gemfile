@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'faraday', '~> 0.15.2'
+gem 'eventmachine', '~> 1.2.7'
+gem 'em-http-request', '~> 1.1.5'
+
 gem 'rake', '~> 12.3.1'
 gem 'rack', '~> 2.0.5'
 gem 'redis', '~> 4.0.2'
