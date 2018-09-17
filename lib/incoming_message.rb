@@ -1,3 +1,6 @@
+require 'app_logger'
+
+
 class IncomingMessage
 
   attr_reader :json
@@ -7,7 +10,11 @@ class IncomingMessage
   end
 
   def self.build_from_rack_req(req_body)
-    return new(JSON.parse(req_body.read))
+    pars = req_body.read
+    return new(JSON.parse(pars))
+  rescue JSON::ParserError
+    AppLogger.log.error("Error parsing the incoming message: #{pars}")
+    raise
   end
 
   def chat_id
