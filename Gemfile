@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.5.1'
 
 gem 'faraday', '~> 0.15.2'
 gem 'eventmachine', '~> 1.2.7'
