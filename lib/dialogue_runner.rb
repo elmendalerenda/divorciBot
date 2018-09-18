@@ -5,9 +5,10 @@ class DialogueRunner
   def self.token=(string); @token=string end
   def self.token; @token end
 
-  def initialize(dialogues, context)
+  def initialize(dialogues, context, telegram_token)
     @dialogue = dialogues
     @context = context
+    @telegram_token = telegram_token
   end
 
   def new_message(incoming_message)
@@ -50,14 +51,10 @@ class DialogueRunner
         body[:reply_markup] = { keyboard: [dialogue.options]}.to_json
       end
 
-      if DialogueRunner.token.nil?
-        p "Intercepted message with payload: #{body}"
-      else
-        conn = Faraday.new(:url => 'https://api.telegram.org/') do |faraday|
-          faraday.adapter  :em_http
-        end
-        conn.post("/bot#{DialogueRunner.token}/sendMessage", body)
+      conn = Faraday.new(:url => 'https://api.telegram.org/') do |faraday|
+        faraday.adapter  :em_http
       end
+      conn.post("/bot#{@telegram_token}/sendMessage", body)
     end
   end
 end

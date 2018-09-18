@@ -10,16 +10,15 @@ describe DialogueRunner do
 
   let(:chat_id) { "123" }
   let(:mock_context) { Context.new(chat_id, MockRedis.new) }
+  let(:telegram_token) { '_token_' }
 
   it 'says hi' do
-    DialogueRunner.token = "_token_"
-
     dialogues = [
       { 'id' => '/start',
         'text' => "Hello, World"
       }
     ]
-    bot = DialogueRunner.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context, telegram_token)
     expected_request = stub_basic_telegram_request("Hello, World")
 
     bot.new_message(compose_payload_with_text("/start"))
@@ -28,15 +27,13 @@ describe DialogueRunner do
   end
 
   it 'answers with a default option' do
-    DialogueRunner.token = "_token_"
-
     dialogues = [
       { 'id' => 'Default',
         'text' => "I do not understand",
         'default' => 'true'
       }
     ]
-    bot = DialogueRunner.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context, telegram_token)
     expected_request = stub_basic_telegram_request("I do not understand")
 
     bot.new_message(compose_payload_with_text("random stuff"))
@@ -45,14 +42,12 @@ describe DialogueRunner do
   end
 
   it 'splits a text into different messages' do
-    DialogueRunner.token = '_token_'
-
     dialogues = [
       { 'id' => 'split',
         'text' => ['first message', 'second message']
       }
     ]
-    bot = DialogueRunner.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context, telegram_token)
     expected_request = stub_basic_telegram_request('first message')
     second_expected_request = stub_basic_telegram_request('second message')
 
@@ -63,8 +58,6 @@ describe DialogueRunner do
   end
 
   it 'jumps from one dialogue to another' do
-    DialogueRunner.token = "_token_"
-
     dialogues = [
       { 'id' => 1 ,
         'text' => "text of section 1" ,
@@ -73,7 +66,7 @@ describe DialogueRunner do
       'text' => "text of section 2" ,
     }
     ]
-    bot = DialogueRunner.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context, telegram_token)
     expected_request = stub_basic_telegram_request("text of section 2")
 
     bot.new_message(compose_payload_with_text("go to section 2"))
@@ -82,8 +75,6 @@ describe DialogueRunner do
   end
 
   it 'ignores a message and continues the dialogue' do
-    DialogueRunner.token = "_token_"
-
     mock_context.save(:last_dialogue, '1')
 
     dialogues = [
@@ -95,7 +86,7 @@ describe DialogueRunner do
         'text' => 'text of section 2' ,
       }
     ]
-    bot = DialogueRunner.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context, telegram_token)
     expected_request = stub_basic_telegram_request("text of section 2")
 
     bot.new_message(compose_payload_with_text("ignore me"))
@@ -104,8 +95,6 @@ describe DialogueRunner do
   end
 
   it 'sends the possible options for a message' do
-    DialogueRunner.token = "_token_"
-
     dialogues = [
       { 'id' => '/start' ,
         'text' => "text of section 1" ,
@@ -115,9 +104,9 @@ describe DialogueRunner do
         ]
     }
     ]
-    bot = DialogueRunner.new(dialogues, mock_context)
+    bot = DialogueRunner.new(dialogues, mock_context, telegram_token)
 
-    expected_request = stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
+    expected_request = stub_request(:post, "https://api.telegram.org/bot#{telegram_token}/sendMessage").
       with( body: {"chat_id"=>chat_id, "text"=>"text of section 1",
                    "reply_markup"=>"{\"keyboard\":[[\"go to section 2\",\"go to section 3\"]]}"}).
       to_return(status: 200, body: "")
@@ -139,7 +128,7 @@ describe DialogueRunner do
   end
 
   def stub_basic_telegram_request(text)
-    stub_request(:post, "https://api.telegram.org/bot_token_/sendMessage").
+    stub_request(:post, "https://api.telegram.org/bot#{telegram_token}/sendMessage").
       with( body: {"chat_id"=> chat_id, "text" => text, "reply_markup"=>"{\"remove_keyboard\":true}"}).
       to_return(status: 200, body: "")
   end

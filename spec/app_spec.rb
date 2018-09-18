@@ -5,11 +5,13 @@ require_relative '../app.rb'
 describe "app" do
   include Rack::Test::Methods
 
-  module DivorciBotApp
+  module App
     class << self
       def dialogues
       end
       def redis
+      end
+      def telegram_token
       end
     end
   end

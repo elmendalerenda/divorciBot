@@ -1,6 +1,5 @@
 require 'app_logger'
 
-
 class IncomingMessage
 
   attr_reader :json

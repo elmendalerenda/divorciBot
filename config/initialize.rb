@@ -1,4 +1,4 @@
-module DivorciBotApp
+module App
   class << self
     def dialogues
       file = File.read('./config/dialogues.json')
@@ -7,6 +7,10 @@ module DivorciBotApp
 
     def redis
       @redis ||= Redis.new(url: ENV['REDIS_URL'])
+    end
+
+    def telegram_token
+      ENV['telegram_bot_token']
     end
   end
 end
