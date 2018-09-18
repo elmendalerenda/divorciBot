@@ -1,13 +1,9 @@
-require_relative './lib/my_bot'
-MyBot.token = ENV["telegram_bot_token"]
+require "rake"
+require "rspec/core/rake_task"
 
-desc "setWebhook"
-task :setWebhook do
-
-  ARGV.each { |a| task a.to_sym do ; end }
-  url = ARGV[1]
-
-  conn = Faraday.new(:url => 'https://api.telegram.org/')
-  res = conn.post("/bot#{MyBot.token}/setWebhook", {url: url})
-  puts res.body
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = Dir.glob("spec/**/*_spec.rb")
+  t.rspec_opts = "--format documentation"
 end
+
+task default: :spec
