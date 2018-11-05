@@ -17,7 +17,7 @@ class DialogueRunner
     last_id = @context.get(:last_dialogue)
     last_dialogue = find_by_id(last_id)
 
-    if(!last_dialogue.override_message.nil?)
+    if(!last_dialogue.override_message.nil?) #delete
       received_message = last_dialogue.override_message
     end
 
@@ -48,7 +48,7 @@ class DialogueRunner
       if dialogue.options.nil?
         body[:reply_markup] = {remove_keyboard: true}.to_json
       else
-        body[:reply_markup] = { keyboard: [dialogue.options]}.to_json
+        body[:reply_markup] = { keyboard: [dialogue.options], resize_keyboard: true}.to_json
       end
 
       conn = Faraday.new(:url => 'https://api.telegram.org/') do |faraday|
