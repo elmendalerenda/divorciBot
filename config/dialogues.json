@@ -58,7 +58,7 @@
     "text": "Pues mira, Primero se presenta lo que se llama una demanda: la otra parte(tu pareja) la recibe y tiene un plazo de 10 días para contestarla.\nLuego se celebra una vista: tenéis que asistir ambos, junto con vuestros abogados. Sólo puedes no asistir si existe alguna causa que lo justifique. Si no asisten sin justificación se entiende que aceptas lo que pide la otra parte. Decisión del juez: Puede ser alguna de estas:\n- Os concede el divorcio y aprueba el convenio regulador.\n - Os concede el divorcio pero no aprueba el convenio regulador: tenéis que modificarlo.\n - No os concede el divorcio: no se cumplen los requisitos legales.\nPara que tu abogado pueda presentar la demanda de divorcio tendrás que darle los siguientes papeles:\n- La certificación de la inscripción del matrimonio (puedes conseguirla en el Registro Civil).\n- La inscripción de nacimiento de los hijos en el Registro Civil.\n Los documentos que permitan evaluar vuestra situación económica: declaraciones tributarias, nóminas, certificaciones bancarias, títulos de propiedad, etc.\n- Cualquier otro documento que te permita justificar aquello que quieras pedir."
   },
   {
-    "id": "Default",
+    "id": "/help",
     "text": "Hola, me llamo Tomás y soy un 🤖 .'Todavía' no entiendo lo que quieres decir, pero aprendo rápido. Lo que si que entiendo son estos comandos:\n'/start': te cuento sobre mi vida\n'/abuenas': resumen del proceso y papeleo de un divorcio de mutuo acuerdo\n'/amalas': resumen del proceso y papeleo de un divorcio contencioso.\n'/sugerencia': comentario que le llegara a mis creadores",
     "default": "true"
   }
