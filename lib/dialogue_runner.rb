@@ -48,7 +48,7 @@ class DialogueRunner
       if dialogue.options.nil?
         body[:reply_markup] = {remove_keyboard: true}.to_json
       else
-        body[:reply_markup] = { keyboard: [dialogue.options], resize_keyboard: true}.to_json
+        body[:reply_markup] = { keyboard: dialogue.options.map{|e| [e]}, resize_keyboard: true}.to_json
       end
 
       conn = Faraday.new(:url => 'https://api.telegram.org/') do |faraday|

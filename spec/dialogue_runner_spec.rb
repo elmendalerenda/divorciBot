@@ -12,6 +12,8 @@ describe DialogueRunner do
   let(:mock_context) { Context.new(chat_id, MockRedis.new) }
   let(:telegram_token) { '_token_' }
 
+  xit 'validates the dialogues format'
+
   it 'says hi' do
     dialogues = [
       { 'id' => '/start',
@@ -108,7 +110,7 @@ describe DialogueRunner do
 
     expected_request = stub_request(:post, "https://api.telegram.org/bot#{telegram_token}/sendMessage").
       with( body: {"chat_id"=>chat_id, "text"=>"text of section 1",
-                   "reply_markup"=>"{\"keyboard\":[[\"go to section 2\",\"go to section 3\"]]}"}).
+                   "reply_markup"=>"{\"keyboard\":[[\"go to section 2\"],[\"go to section 3\"]],\"resize_keyboard\":true}"}).
       to_return(status: 200, body: "")
 
     bot.new_message(compose_payload_with_text("/start"))
