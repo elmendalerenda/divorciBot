@@ -12,36 +12,36 @@
   {
     "id": "somos un matrimonio añejo",
     "text": ["Como con mi segunda ex, Carmen. Tuvimos un hijo y todo. Yo quiero muchisimo a mi hijo, pero prefiero vivir solo la verdad. Mis tres divorcios fueron complicados. Es más fácil cuando no hay hijos en común", "Briconsejo: Si os llevais de manera os recomiendo que tramiteis el divorcio de mutuo acuerdo, es más sencillo, más rápido, más económico y  podéis tener el mismo abogado."],
-    "options": ["No estamos precisamente a buenas.", "Vamos a estar de acuerdo seguramente."]
+    "options": ["No estamos precisamente a buenas.", "dices que por mutuo acuerdo es mas facil"]
   },
   {
     "id": "No estamos precisamente a buenas.",
     "text": "Es lo peor, la primera vez que me divorcié mi ex mujer ni siquiera me hablaba. Luego nos arreglamos y hasta quedamos de vez en cuando ahora. El caso que tuvimos un divorcio contencioso: cada uno tenía su abogada, hubo un juicio, y la jueza de familia decidió.",
-    "options": [ "Como? que es lo que la jueza puede decidir?", "entonces el divorcio de mutuo acuerdo es mas facil?" ]
+    "options": [ "Como? que es lo que la jueza puede decidir?", "dices que por mutuo acuerdo es mas facil" ]
   },
   {
     "id": "Como? que es lo que la jueza puede decidir?",
     "text": "Bueno, el Juzgado no puede decidir si te divorcias o no; siempre te tienen que conceder el divorcio porque hay que cumplir unos requisitos legales.\nAdemas si hay hijos menores tiene que decidir sobre la custodia, el derecho de visitas, el uso de la vivienda familiar, la pensión de alimentos… Te puedo hacer un resumen asi rapido de los pasos de un divorcio de este tipo:",
-    "options": ["si, hazme un resumen de los pasos de un divorcio contencioso", "que papeles hay que llevar al abogado?", "entonces el divorcio es de mutuo acuerdo es mas facil?"]
+    "options": ["si, hazme un resumen de los pasos de un divorcio contencioso", "que papeles hay que llevar al abogado?", "dices que por mutuo acuerdo es mas facil"]
   },
   {
     "id": "si, hazme un resumen de los pasos de un divorcio contencioso",
-    "text": "Pues mira, Primero se presenta lo que se llama una demanda: la otra parte(tu pareja) la recibe y tiene un plazo de 10 días para contestarla.Luego se celebra una vista: tenéis que asistir ambos, junto con vuestros abogados. Sólo puedes no asistir si existe alguna causa que lo justifique. Si no asisten sin justificación se entiende que aceptas lo que pide la otra parte. Decisión del juez: Puede ser alguna de estas:\n - Os concede el divorcio y aprueba el convenio regulador.\n - Os concede el divorcio pero no aprueba el convenio regulador: tenéis que modificarlo.\n - No os concede el divorcio: no se cumplen los requisitos legales.",
-    "options": [ "Y que papeles tengo que llevar al abogado?", "entonces el divorcio es de mutuo acuerdo es mas facil?"]
+    "text": "Pues mira, Primero se presenta lo que se llama una demanda: la otra parte(tu pareja) la recibe y tiene un plazo de 10 días para contestarla.\nLuego se celebra una vista: tenéis que asistir ambos, junto con vuestros abogados. Sólo puedes no asistir si existe alguna causa que lo justifique. Si no asisten sin justificación se entiende que aceptas lo que pide la otra parte. Decisión del juez: Puede ser alguna de estas:\n- Os concede el divorcio y aprueba el convenio regulador.\n - Os concede el divorcio pero no aprueba el convenio regulador: tenéis que modificarlo.\n - No os concede el divorcio: no se cumplen los requisitos legales.",
+    "options": [ "Y que papeles tengo que llevar al abogado?", "dices que por mutuo acuerdo es mas facil"]
   },
   {
     "id": "Y que papeles tengo que llevar al abogado?",
     "text": "Para que tu abogado pueda presentar la demanda de divorcio tendrás que darle los siguientes papeles:\n- La certificación de la inscripción del matrimonio (puedes conseguirla en el Registro Civil).\n- La inscripción de nacimiento de los hijos en el Registro Civil.\n Los documentos que permitan evaluar vuestra situación económica: declaraciones tributarias, nóminas, certificaciones bancarias, títulos de propiedad, etc.\n- Cualquier otro documento que te permita justificar aquello que quieras pedir.",
-    "options": ["entonces el divorcio es de mutuo acuerdo es mas facil?", "Entendido, dejame ver si tengo alguna duda y te cuento"]
+    "options": ["dices que por mutuo acuerdo es mas facil", "Entendido, dejame ver si tengo alguna duda y te cuento"]
   },
   {
-    "id": "entonces el divorcio es de mutuo acuerdo es mas facil?",
+    "id": "dices que por mutuo acuerdo es mas facil",
     "text": "Con mi segunda ex mujer solo tuve un hijo, pero nos divorciamos de mutuo acuerdo: pactamos las condiciones con nuestra abogada, ella redactó un convenio, y el Juzgado solo lo aprobó con el visto bueno del fiscal. El procedimiento en este caso es más sencillo y podéis conseguir el divorcio contratando el mismo abogado para ambos.",
     "options": ["Cuentame detalladamente los pasos en caso de un divorcio de mutuo acuerdo", "Cuentame los papeles que necesitamos reunir"]
   },
   {
     "id": "Cuentame detalladamente los pasos en caso de un divorcio de mutuo acuerdo",
-    "text": ")Una vez presentada y admitida la solicitud de divorcio el Letrado de la Administración de justicia os citará para que os ratifiquéis en vuestra decisión. Iréis por separado.\n Una vez ratificada por ambos la solicitud de divorcio, si la documentación presentada fuera insuficiente, el Juez o el Letrado de la Administración de Justicia os concederá un plazo de 10 días para completarla.\n Si tenéis hijos menores o incapacitados el tribunal recabará informe del Ministerio Fiscal sobre los extremos del convenio que les afecten.\n El tribunal dictará sentencia que puede ser alguna de estas:\n - Conceder el divorcio y aprobar el convenio regulador.\n - Conceder el divorcio y no aprobar el convenio regulador, en todos o algunos de sus extremos: En este caso el juez os dará un plazo para presentar otro convenio cambiando aquello que no ha aprobado.\n - No conceder el divorcio: La sentencia se puede recurrir en apelación.",
+    "text": "Una vez presentada y admitida la solicitud de divorcio el Letrado de la Administración de justicia os citará para que os ratifiquéis en vuestra decisión. Iréis por separado.\nUna vez ratificada por ambos la solicitud de divorcio, si la documentación presentada fuera insuficiente, el Juez o el Letrado de la Administración de Justicia os concederá un plazo de 10 días para completarla.\nSi tenéis hijos menores o incapacitados el tribunal recabará informe del Ministerio Fiscal sobre los extremos del convenio que les afecten.\nEl tribunal dictará sentencia que puede ser alguna de estas:\n- Conceder el divorcio y aprobar el convenio regulador.\n- Conceder el divorcio y no aprobar el convenio regulador, en todos o algunos de sus extremos: En este caso el juez os dará un plazo para presentar otro convenio cambiando aquello que no ha aprobado.\n- No conceder el divorcio: La sentencia se puede recurrir en apelación.",
     "options": ["Cuales son los papeles a presentar a mi abogado en caso de mutuo acuerdo?", "No estamos precisamente a buenas."]
   },
   { "id":"Cuales son los papeles a presentar a mi abogado en caso de mutuo acuerdo?",
