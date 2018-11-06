@@ -1,12 +1,17 @@
 [
   {
     "id": "/start",
-    "text":["👋Hola soy Tomás, nos conocimos el otro dia mientras paseaba a Candy verdad? Yo tambien estuve en tu situacion y me hubiera ayudado mucho si un amigo me hubiera contado como es divorciarse", "Tu sabias que un matrimonio de media en españa dura 16 años?? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. Tu llevas mucho tiempo casado?"],
-    "options": ["uf, que si llevo tiempo casado...", "me he casado recientemente, hace menos de 3 meses"]
+    "text":["👋 soy Tomás, nos conocimos el otro dia mientras paseaba a Candy verdad? Yo tambien estuve en tu situacion y me hubiera ayudado mucho si un amigo me hubiera contado como es divorciarse", "Tu sabias que un matrimonio de media en españa dura 16 años?? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. Tu llevas mucho tiempo casado?"],
+    "options": ["somos un matrimonio añejo", "poco, menos de 3 meses"]
   },
   {
-    "id": "uf, que si llevo tiempo casado...",
-    "text": ["Como con mi segunda ex. Tuvimos un hijo y todo. Yo quiero muchisimo a mi hijo, pero prefiero vivir solo la verdad. Mis tres divorcios fueron complicados. Aunque es más fácil cuando no hay hijos en común", "Ten en cuenta que al pensar en el proceso de divorcio lo más importante es si te llevas bien con tu pareja, y si estais de acuerdo en divorciaros los dos.\nSi os llevais de manera coordial os recomiendo que tramiteis el divorcio de mutuo acuerdo, es más sencillo, más rápido, más económico y  podéis tener el mismo abogado."],
+    "id":  "poco, menos de 3 meses",
+    "text": "La ley es muy clara al respecto, dice que antes de los 3 meses no puedes divorciarte, salvo que tu vida esté en peligro, o la de tus hijos. Entonces no hace falta que esperes, acude a la policía o al juzgado para que te ayuden.",
+    "options": ["somos un matrimonio añejo",  "Entendido, dejame ver si tengo alguna duda y te cuento" ]
+  },
+  {
+    "id": "somos un matrimonio añejo",
+    "text": ["Como con mi segunda ex, Carmen. Tuvimos un hijo y todo. Yo quiero muchisimo a mi hijo, pero prefiero vivir solo la verdad. Mis tres divorcios fueron complicados. Es más fácil cuando no hay hijos en común", "Briconsejo: Si os llevais de manera os recomiendo que tramiteis el divorcio de mutuo acuerdo, es más sencillo, más rápido, más económico y  podéis tener el mismo abogado."],
     "options": ["No estamos precisamente a buenas.", "Vamos a estar de acuerdo seguramente."]
   },
   {
