@@ -118,6 +118,8 @@ describe DialogueRunner do
     expect(expected_request).to have_been_requested
   end
 
+  xit 'stores suggestions'
+
   def compose_payload_with_text(text)
     IncomingMessage.new(
       {
