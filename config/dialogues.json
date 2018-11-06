@@ -1,7 +1,7 @@
 [
   {
     "id": "/start",
-    "text":["👋 soy Tomás, nos conocimos el otro dia mientras paseaba a Candy verdad? Yo tambien estuve en tu situacion y me hubiera ayudado mucho si un amigo me hubiera contado como es divorciarse", "Tu sabias que un matrimonio de media en españa dura 16 años?? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. Tu llevas mucho tiempo casado?"],
+    "text":["👋 soy Tomás, nos conocimos el otro dia mientras paseaba a Candy verdad? Yo tambien estuve en tu situacion y me hubiera ayudado mucho si un amigo me hubiera contado como es divorciarse", "Tu sabias que un matrimonio de media en españa dura 16 años?? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. Hace cuanto que os casasteis?"],
     "options": ["somos un matrimonio añejo", "poco, menos de 3 meses"]
   },
   {
@@ -53,7 +53,7 @@
   },
   {
     "id": "Default",
-    "text": "¿Quieres que hablemos? Escribe '/start'",
+    "text": "Hola, me llamo Tomás y soy un 🤖 .'Todavía' no entiendo lo que quieres decir, pero aprendo rápido. Lo que si que entiendo son estos comandos:\n'/start': te cuento sobre mi vida\n'/abuenas': resumen del proceso y papeleo de un divorcio de mutuo acuerdo\n'/amalas': resumen del proceso y papeleo de un divorcio contencioso.\n'/sugerencia': comentario que le llegara a mis creadores",
     "default": "true"
   }
 ]
