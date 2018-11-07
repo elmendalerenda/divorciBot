@@ -12,8 +12,6 @@ describe DialogueRunner do
   let(:mock_context) { Context.new(chat_id, MockRedis.new) }
   let(:telegram_token) { '_token_' }
 
-  xit 'validates the dialogues format'
-
   it 'says hi' do
     dialogues = [
       { 'id' => '/start',
@@ -118,7 +116,19 @@ describe DialogueRunner do
     expect(expected_request).to have_been_requested
   end
 
-  xit 'stores suggestions'
+  it 'stores suggestions' do
+    dialogues = [
+      { 'id' => '/sugerencia' ,
+        'text' => "thank you"
+      }
+    ]
+    bot = DialogueRunner.new(dialogues, mock_context, telegram_token)
+
+    expect(mock_context).to receive(:save_suggestion).with("esto es una sugerencia")
+    stub_basic_telegram_request("thank you")
+
+    bot.new_message(compose_payload_with_text("/sugerencia esto es una sugerencia"))
+  end
 
   def compose_payload_with_text(text)
     IncomingMessage.new(

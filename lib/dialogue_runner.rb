@@ -14,12 +14,8 @@ class DialogueRunner
   def new_message(incoming_message)
     received_message = incoming_message.text
 
-    last_id = @context.get(:last_dialogue)
-    last_dialogue = find_by_id(last_id)
-
-    if(!last_dialogue.override_message.nil?) #delete
-      received_message = last_dialogue.override_message
-    end
+    received_message = a_suggestion(received_message)
+    received_message = a_pass(received_message)
 
     dialogue = find_by_id(received_message)
 
@@ -28,6 +24,26 @@ class DialogueRunner
   end
 
   private
+
+  def a_pass(received_message)
+    last_id = @context.get(:last_dialogue)
+    last_dialogue = find_by_id(last_id)
+
+    if(!last_dialogue.override_message.nil?)
+      return last_dialogue.override_message
+    end
+
+    received_message
+  end
+
+  def a_suggestion(received_message)
+    match = received_message.match(/^\/sugerencia\s+(.*)/) do |m|
+      @context.save_suggestion(m[1])
+      true
+    end
+
+    match ? "/sugerencia" : received_message
+  end
 
   def find_by_id(criteria)
     found = @dialogue.find {|e| e["id"] == criteria}

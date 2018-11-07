@@ -13,4 +13,8 @@ class Context
   def get(key)
     @redis.hget(@id, key)
   end
+
+  def save_suggestion(text)
+    save(:suggestion, text)
+  end
 end

@@ -59,7 +59,11 @@
   },
   {
     "id": "/help",
-    "text": "Hola, me llamo Tomás y soy un 🤖 .'Todavía' no entiendo lo que quieres decir, pero aprendo rápido. Lo que si que entiendo son estos comandos:\n'/start': te cuento sobre mi vida\n'/abuenas': resumen del proceso y papeleo de un divorcio de mutuo acuerdo\n'/amalas': resumen del proceso y papeleo de un divorcio contencioso.",
+    "text": "Hola, me llamo Tomás y soy un 🤖 .'Todavía' no entiendo lo que quieres decir, pero aprendo rápido. Lo que si que entiendo son estos comandos:\n'/start': te cuento sobre mi vida\n'/abuenas': resumen del proceso y papeleo de un divorcio de mutuo acuerdo\n'/amalas': resumen del proceso y papeleo de un divorcio contencioso.\n'/sugerencia <texto>': Sugerencias sobre mi comportamiento",
     "default": "true"
+  },
+  {
+    "id": "/sugerencia",
+    "text": "La hemos registrado, gracias!"
   }
 ]
