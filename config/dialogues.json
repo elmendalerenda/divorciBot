@@ -1,7 +1,13 @@
 [
   {
     "id": "/start",
-    "text":["👋 soy Tomás, nos conocimos el otro dia mientras paseaba a Candy verdad? Yo tambien estuve en tu situacion y me hubiera ayudado mucho si un amigo me hubiera contado como es divorciarse", "Tu sabias que un matrimonio de media en españa dura 16 años?? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. Hace cuanto que os casasteis?"],
+    "text":"👋 soy Tomás, nos conocimos el otro dia mientras paseaba a Candy verdad? Yo tambien estuve en tu situacion y me hubiera ayudado mucho si un amigo me hubiera contado como es divorciarse",
+    "override_message": "start-2",
+    "options": ["Más"]
+  },
+  {
+    "id": "start-2",
+    "text":"Tu sabias que un matrimonio de media en españa dura 16 años?? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. Hace cuanto que os casasteis?",
     "options": ["somos un matrimonio añejo", "poco, menos de 3 meses"]
   },
   {
@@ -64,6 +70,6 @@
   },
   {
     "id": "/sugerencia",
-    "text": "La hemos registrado, gracias!"
+    "text": "Anotada, gracias!"
   }
 ]
