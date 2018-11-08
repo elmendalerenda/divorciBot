@@ -75,7 +75,7 @@ describe DialogueRunner do
   end
 
   it 'ignores a message and continues the dialogue' do
-    mock_context.save(:last_dialogue, '1')
+    mock_context.save_previous_dialogue('1')
 
     dialogues = [
       { 'id' => '1' ,

@@ -17,4 +17,12 @@ class Context
   def save_suggestion(text)
     save(:suggestion, text)
   end
+
+  def save_previous_dialogue(text)
+    save(:previous_dialogue, text)
+  end
+
+  def get_previous_dialogue
+    get(:previous_dialogue)
+  end
 end

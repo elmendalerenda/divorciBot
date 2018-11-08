@@ -19,14 +19,14 @@ class DialogueRunner
 
     dialogue = find_by_id(received_message)
 
-    @context.save(:last_dialogue, dialogue.id)
+    @context.save_previous_dialogue(dialogue.id)
     send_message(dialogue, incoming_message.chat_id)
   end
 
   private
 
   def a_pass(received_message)
-    last_id = @context.get(:last_dialogue)
+    last_id = @context.get_previous_dialogue
     last_dialogue = find_by_id(last_id)
 
     if(!last_dialogue.override_message.nil?)

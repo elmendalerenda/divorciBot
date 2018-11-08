@@ -3,7 +3,7 @@
     "id": "/start",
     "text":"👋 soy Tomás, nos conocimos el otro dia mientras paseaba a Candy verdad? Yo tambien estuve en tu situacion y me hubiera ayudado mucho si un amigo me hubiera contado como es divorciarse",
     "override_message": "start-2",
-    "options": ["Más"]
+    "options": ["es complicado, si"]
   },
   {
     "id": "start-2",
