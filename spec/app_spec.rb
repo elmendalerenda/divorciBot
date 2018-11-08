@@ -10,6 +10,7 @@ describe "app" do
       def dialogues
       end
       def redis
+        MockRedis.new
       end
       def telegram_token
       end
