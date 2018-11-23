@@ -7,7 +7,7 @@
   },
   {
     "id": "start-2",
-    "text":"Tu sabias que un matrimonio de media en españa dura 16 años?? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. Hace cuanto que os casasteis?",
+    "text":"¿Tu sabias que un matrimonio de media en España dura 16 años? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. ¿Hace cuánto que os casasteis?",
     "options": ["somos un matrimonio añejo", "poco, menos de 3 meses"]
   },
   {
@@ -17,13 +17,13 @@
   },
   {
     "id": "somos un matrimonio añejo",
-    "text": ["Como con mi segunda ex, Carmen. Tuvimos un hijo y todo. Yo quiero muchisimo a mi hijo, pero prefiero vivir solo la verdad. Mis tres divorcios fueron complicados. Es más fácil cuando no hay hijos en común", "Briconsejo: Si os llevais de manera os recomiendo que tramiteis el divorcio de mutuo acuerdo, es más sencillo, más rápido, más económico y  podéis tener el mismo abogado."],
+    "text": ["Como con mi segunda ex, Carmen. Mis tres divorcios fueron complicados. Es más fácil cuando no hay hijos en común", "Briconsejo: Si os llevais de manera cordial os recomiendo que tramiteis el divorcio de mutuo acuerdo, es más sencillo, más rápido, más económico y podéis tener el mismo abogado."],
     "options": ["No estamos precisamente a buenas.", "dices que por mutuo acuerdo es mas facil"]
   },
   {
     "id": "No estamos precisamente a buenas.",
-    "text": "Es lo peor, la primera vez que me divorcié mi ex mujer ni siquiera me hablaba. Luego nos arreglamos y hasta quedamos de vez en cuando ahora. El caso que tuvimos un divorcio contencioso: cada uno tenía su abogada, hubo un juicio, y la jueza de familia decidió.",
-    "options": [ "Como? que es lo que la jueza puede decidir?", "dices que por mutuo acuerdo es mas facil" ]
+    "text": "Es lo peor, la primera vez que me divorcié mi ex mujer ni siquiera me hablaba. Me duele por los niños, pero la situación era insostenible. Luego nos arreglamos y hasta quedamos de vez en cuando ahora. El caso es que tuvimos un divorcio contencioso: cada uno tenía su abogada, hubo un juicio, y la jueza de familia decidió.",
+    "options": [ "Como? que es lo que la jueza puede decidir?", "dices que por mutuo acuerdo es mas facil", "¿qué pasó con los niños?" ]
   },
   {
     "id": "Como? que es lo que la jueza puede decidir?",
@@ -56,6 +56,27 @@
   },
   { "id":  "Entendido, dejame ver si tengo alguna duda y te cuento",
     "text": "Claro, si tienes alguna duda dejame un mensaje."
+  },
+  {
+    "id": "¿qué pasó con los niños?",
+    "text": "Depende de si son mayores o menos de edad. Si son mayores de edad tienen que firmar el divorcio porque puede corresponderles una pensión de alimentos.\n Cuando hay hijos menores el divorcio siempre tiene que decretarlo el Juzgado con el visto bueno del fiscal.",
+    "options": ["¿El fiscal que pinta si hay hijos menores?", "Tengo hijo/s mayores de edad" ]
+  },
+  {
+    "id":"Tengo hijo/s mayores de edad",
+    "text": "Aitana, del primer matrimonio, es mayor de edad ya pero todavía le tengo que pasar la pensión de alimentos porque no es 'económicamente dependendiente'",
+    "options": ["Tengo hijos menores", "¿Cómo se calcula la pensión de alimentos?"]
+  },
+  {
+    "id": "¿Cómo se calcula la pensión de alimentos?",
+    "text": "Pues yo pensaba que la pension de los hijos iba por una tabla o algo así, pero lo deciden los jueces. Depende de muchas cosas: lo que ganeis cada uno, el estilo de vida de los niños, los gastos de la familia... no se pueden hacer tablas para eso.",
+    "options": ["Tengo hijos menores"]
+  },
+  {
+    "id": "Tengo hijos menores",
+    "text": ["Cuando hay hijos menores el divorcio siempre tiene que decretarlo el Juzgado con el visto bueno del fiscal.", "El Juzgado no puede decidir si te divorcias o no; siempre te tienen que conceder el divorcio. Pero si hay hijos menores tiene que decidir sobre la custodia, el derecho de visitas, el uso de la vivienda familiar, la pensión de alimentos...", "No es que el fiscal pueda opinar sobre el divorcio. Pero vigila 'el interés superior del menor' en las cuestiones que afectan a los hijos como la custodia, el régimen de visitas, o la pensión de alimentos."],
+    "options": ["somos un matrimonio añejo"]
+
   },
   { "id": "/abuenas",
     "text": "Una vez presentada y admitida la solicitud de divorcio el Letrado de la Administración de justicia os citará para que os ratifiquéis en vuestra decisión. Iréis por separado.\nUna vez ratificada por ambos la solicitud de divorcio, si la documentación presentada fuera insuficiente, el Juez o el Letrado de la Administración de Justicia os concederá un plazo de 10 días para completarla.\nSi tenéis hijos menores o incapacitados el tribunal recabará informe del Ministerio Fiscal sobre los extremos del convenio que les afecten.\nEl tribunal dictará sentencia que puede ser alguna de estas:\n- Conceder el divorcio y aprobar el convenio regulador.\n- Conceder el divorcio y no aprobar el convenio regulador, en todos o algunos de sus extremos: En este caso el juez os dará un plazo para presentar otro convenio cambiando aquello que no ha aprobado.\n- No conceder el divorcio: La sentencia se puede recurrir en apelación.\nPara que vuestro o tu abogado pueda presentar la de divorcio tendrás que darle los siguientes papeles: \n1. La certificación de la inscripción del matrimonio (puedes conseguirla en el Registro Civil).\n2. La inscripción de nacimiento de los hijos en el Registro Civil.\n3. La propuesta de convenio regulador.\n4. Cualquier otro documento que te permita justificar aquello que quieras pedir.\n5. Proposición de prueba para acreditar aquellos hechos relevantes que no tengan constancia documental."
