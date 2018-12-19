@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "/start",
     "text":"👋 soy Tomás, nos conocimos el otro dia mientras paseaba a Candy ¿verdad? Yo también estuve en tu situación y me hubiera ayudado mucho si un amigo me hubiera contado cómo es divorciarse",
@@ -7,11 +7,11 @@
   },
   {
     "id": "start-2",
-    "text":"¿Tu sabias que un matrimonio de media en España dura 16 años? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. ¿Hace cuánto que os casasteis?",
+    "text":"¿Tú sabias que un matrimonio de media en España dura 16 años? Yo bajo la media, con el segundo matrimonio aguantamos 5 años. ¿Hace cuánto que os casasteis?",
     "options": ["somos un matrimonio añejo", "poco, menos de 3 meses"]
   },
   {
-    "id":  "poco, menos de 3 meses",
+    "id":  "Poco, menos de 3 meses",
     "text": "La ley es muy clara al respecto, dice que antes de los 3 meses no puedes divorciarte, salvo que tu vida esté en peligro, o la de tus hijos. Entonces no hace falta que esperes, acude a la policía o al juzgado para que te ayuden.",
     "options": ["somos un matrimonio añejo",  "Entendido, dejame ver si tengo alguna duda y te cuento" ]
   },
@@ -27,12 +27,12 @@
   },
   {
     "id": "Como? que es lo que la jueza puede decidir?",
-    "text": "Bueno, el Juzgado no puede decidir si te divorcias o no; siempre te tienen que conceder el divorcio porque hay que cumplir unos requisitos legales. Esto lo aprendi muy bien al divorciarnos Irina y yo, en ese momento teniamos hijos menores de edad y el fiscal reviso el convenio muy afondo.\nSi necesitas un resumen de los pasos en los que consiste un divorcio contencioso los tengo por aquí escritos, solo tienes que teclear '/amalas'.",
+    "text": "Bueno, el Juzgado no puede decidir si te divorcias o no; siempre te tienen que conceder el divorcio, pero pueden decidir sobre los hijos. Esto lo aprendi muy bien al divorciarnos Irina y yo, en ese momento teníamos hijos menores de edad y el Juzgado decidió sobre la custodia, las visitas y la pensión de alimentos.\nSi necesitas un resumen de los pasos en los que consiste un divorcio contencioso los tengo por aquí escritos, solo tienes que teclear '/amalas'.",
     "options": ["dices que por mutuo acuerdo es mas facil", "¿qué pasó con los niños?"]
   },
   {
-    "id": "dices que por mutuo acuerdo es mas facil",
-    "text": "Con Carmen, mi segunda ex, solo tuve un hijo, pero nos divorciamos de mutuo acuerdo: pactamos las condiciones con nuestra abogada, ella redactó un convenio, y el Juzgado lo aprobó con el visto bueno del fiscal. El procedimiento en este caso es más sencillo y podéis conseguir el divorcio contratando el mismo abogado para ambos. De hecho también puedes divorciarte de mutuo acuerdo ante un Notario.\nLa abogada me pasó un papel con todos los pasos, si quieres que te los pase teclea '/abuenas'.",
+    "id": "dices que por mutuo acuerdo es más facil",
+    "text": "Con Carmen, mi segunda ex, solo tuve un hijo, pero nos divorciamos de mutuo acuerdo: pactamos las condiciones con nuestra abogada, ella redactó un convenio, y el Juzgado lo aprobó con el visto bueno del fiscal. El procedimiento en este caso es más sencillo y podéis conseguir el divorcio contratando el mismo abogado para ambos. De hecho también puedes divorciarte de mutuo acuerdo ante un Notario si no tienes hijos, o son mayores de edad.\nLa abogada me pasó un papel con todos los pasos, si quieres que te los pase teclea '/abuenas'.",
     "options": [ "Entendido, dejame ver si tengo alguna duda y te cuento", "No estamos precisamente a buenas.", "Cuentame ante Notario cómo se hace"]
   },
   { "id":  "Entendido, dejame ver si tengo alguna duda y te cuento",
@@ -40,7 +40,7 @@
   },
   {
     "id": "Cuentame ante Notario cómo se hace",
-    "text": ["Mi tercer divorcio fue el más fácil: como no teníamos hijos nos divorciamos ante Notario. Solo necesitas que te acompañe un abogado, y firmar ante el Notario que el matrimonio se disuelve.", "Bueno, si tus hijos son mayores de edad puedes igualmente firmar el divorcio ante Notario, pero además de las pareja tienen que firmar los hijos."],
+    "text": ["Mi tercer divorcio fue el más fácil: como no teníamos hijos nos divorciamos ante Notario. Solo necesitas que te acompañe un abogado, y firmar ante el Notario que el matrimonio se disuelve.", "Bueno, si tus hijos son mayores de edad puedes igualmente firmar el divorcio ante Notario, pero además de la pareja tienen que firmar los hijos que no sean independientes"],
     "options": [ "Entendido, dejame ver si tengo alguna duda y te cuento", "No estamos precisamente a buenas."]
   },
   {
@@ -50,25 +50,26 @@
   },
   {
     "id":"Tengo hijo/s mayores de edad",
-    "text": "Aitana, del primer matrimonio, es mayor de edad ya pero todavía le tengo que pasar la pensión de alimentos porque no es 'económicamente dependendiente'",
+    "text": "Aitana, del primer matrimonio, es mayor de edad ya pero todavía le tengo que pasar la pensión de alimentos. Aunque tiene algún trabajillo en verano sigue estudiando y vive con su madre; aún no es 'económicamente independendiente'",
     "options": ["Tengo hijos menores", "¿Cómo se calcula la pensión de alimentos?"]
   },
   {
     "id": "¿Cómo se calcula la pensión de alimentos?",
-    "text": "Pues yo pensaba que la pension de los hijos iba por una tabla o algo así, pero lo deciden los jueces. Depende de muchas cosas: lo que ganeis cada uno, el estilo de vida de los niños, los gastos de la familia... no se pueden hacer tablas para eso.",
+    "text": "Pues yo pensaba que la pension de los hijos iba por una tabla o algo así, pero lo deciden los jueces. Depende de muchas cosas: lo que ganéis cada uno, el estilo de vida de los niños, los gastos de la familia... no se pueden hacer tablas para eso.",
     "options": ["Tengo hijos menores"]
   },
   {
     "id": "Tengo hijos menores",
-    "text": ["El Juzgado no puede decidir si te divorcias o no; siempre te tienen que conceder el divorcio. Pero si hay hijos menores tiene que decidir sobre la custodia, el derecho de visitas, el uso de la vivienda familiar, la pensión de alimentos...", "No es que el fiscal pueda opinar sobre el divorcio. Pero vigila 'el interés superior del menor' en las cuestiones que afectan a los hijos como la custodia, el régimen de visitas, o la pensión de alimentos."],
+    "text": ["El Juzgado no puede decidir si te divorcias o no; siempre te tienen que conceder el divorcio. Pero si hay hijos menores tiene que decidir sobre la custodia, el derecho de visitas, quién se queda en la vivienda familiar, la pensión de alimentos...", "No es que el fiscal pueda opinar sobre el divorcio. Pero vigila 'el interés superior del menor' en las cuestiones que afectan a los hijos como la custodia, el régimen de visitas, o la pensión de alimentos."],
     "options": ["somos un matrimonio añejo"]
 
   },
   { "id": "/abuenas",
-    "text": "Una vez presentada y admitida la solicitud de divorcio el Letrado de la Administración de justicia os citará para que os ratifiquéis en vuestra decisión. Iréis por separado.\nUna vez ratificada por ambos la solicitud de divorcio, si la documentación presentada fuera insuficiente, el Juez o el Letrado de la Administración de Justicia os concederá un plazo de 10 días para completarla.\nSi tenéis hijos menores o incapacitados el tribunal recabará informe del Ministerio Fiscal sobre los extremos del convenio que les afecten.\nEl tribunal dictará sentencia que puede ser alguna de estas:\n- Conceder el divorcio y aprobar el convenio regulador.\n- Conceder el divorcio y no aprobar el convenio regulador, en todos o algunos de sus extremos: En este caso el juez os dará un plazo para presentar otro convenio cambiando aquello que no ha aprobado.\n- No conceder el divorcio: La sentencia se puede recurrir en apelación.\n\nPara que vuestro o tu abogado pueda presentar la de divorcio tendrás que darle los siguientes papeles: \n1. La certificación de la inscripción del matrimonio (puedes conseguirla en el Registro Civil).\n2. La inscripción de nacimiento de los hijos en el Registro Civil.\n3. La propuesta de convenio regulador.\n4. Cualquier otro documento que te permita justificar aquello que quieras pedir.\n5. Proposición de prueba para acreditar aquellos hechos relevantes que no tengan constancia documental."
+    "text": "Una vez presentada y admitida la solicitud de divorcio con el Convenio que pactasteis, el Letrado de la Administración de justicia os citará para que os ratifiquéis en vuestra decisión. Iréis por separado.\nUna vez ratificado por ambos el convenio de divorcio, si la documentación presentada fuera insuficiente, el Juez o el Letrado de la Administración de Justicia os concederá un plazo de 10 días para completarla.\nSi tenéis hijos menores o incapacitados el tribunal recabará informe del Ministerio Fiscal sobre los extremos del convenio que les afecten.\nEl tribunal dictará sentencia que puede ser alguna de estas:\n- Conceder el divorcio y aprobar el convenio regulador.\n- Conceder el divorcio y no aprobar el convenio regulador, en todos o algunos de sus extremos: En este caso el juez os dará un plazo para presentar otro convenio cambiando aquello que no ha aprobado.\n- No conceder el divorcio: La sentencia se puede recurrir en apelación.\n\nPara que vuestro o tu abogado pueda presentar la demanda de divorcio tendrás que darle los siguientes papeles: \n1. La certificación de la inscripción del matrimonio (puedes conseguirla en el Registro Civil).\n2. La inscripción de nacimiento de los hijos en el Registro Civil.\n3. La propuesta de convenio regulador (o puede hacerla el abogado).\n4. Cualquier otro documento que te permita justificar aquello que quieras pedir.\n5. Proposición de prueba para acreditar aquellos hechos relevantes que no tengan constancia documental."
   },
   { "id": "/amalas",
-    "text": "Pues mira, Primero el abogado presenta lo que se llama una demanda: la otra parte (tu pareja) la recibe y tiene un plazo de 10 días para contestar.\nLuego se celebra una vista a la que tenéis que asistir ambos junto con vuestros abogados. Sólo puedes no asistir si existe alguna causa que lo justifique. Si no asistes sin justificación se entiende que aceptas lo que pide la otra parte.\n A partir de ahí es decisión del Juez, que puede ser alguna de estas:\n- Os concede el divorcio y aprueba el convenio regulador.\n- Os concede el divorcio pero no aprueba el convenio regulador: tenéis que modificarlo.\n- No os concede el divorcio: no se cumplen los requisitos legales.\n\nPara que tu abogado pueda presentar la demanda de divorcio tendrás que darle los siguientes papeles:\n1. La certificación de la inscripción del matrimonio (puedes conseguirla en el Registro Civil).\n2. La inscripción de nacimiento de los hijos en el Registro Civil.\n3. Los documentos que permitan evaluar vuestra situación económica: declaraciones tributarias, nóminas, certificaciones bancarias, títulos de propiedad, etc.\n4. Cualquier otro documento que te permita justificar aquello que quieras pedir."
+    "text": "Pues mira, Primero el abogado presenta lo que se llama una demanda: la otra parte (tu pareja) la recibe y tiene un plazo de 10 días para contestar.\nLuego se celebra una vista a la que tenéis que asistir ambos junto con vuestros abogados. Sólo puedes no asistir si existe alguna causa que lo justifique. Si no asistes sin justificación se entiende que aceptas lo que pide la otra parte.\n A partir de ahí es decisión del Juez, que va a decidir sobre lo siguiente:\n- Conceder el divorcio. \n- Quién se queda con la custodia de los niños: puede ser uno de los padres, o ser compartida.\n- Cuándo tiene derecho de visitas el padre o madre que no tiene la custodia.\n- La pensión de alimentos que el padre o madre que no tiene la custodia tiene que pasar a los hijos.\n- Quién tiene derecho a vivir en el hogar familiar 
+ \n\nPara que tu abogado pueda presentar la demanda de divorcio tendrás que darle los siguientes papeles:\n1. La certificación de la inscripción del matrimonio (puedes conseguirla en el Registro Civil).\n2. La inscripción de nacimiento de los hijos en el Registro Civil.\n3. Los documentos que permitan evaluar vuestra situación económica: declaraciones tributarias, nóminas, certificaciones bancarias, títulos de propiedad, etc.\n4. Cualquier otro documento que te permita justificar aquello que quieras pedir."
   },
   {
     "id": "/help",
